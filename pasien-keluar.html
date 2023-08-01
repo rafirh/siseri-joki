@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Laporan Pasien Keluar | SI SERI</title>
+    <link href="./assets/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="./assets/img/logo.png" type="image/x-icon" />
+    <style>
+      @import url("https://rsms.me/inter/inter.css");
+      :root {
+        --tblr-font-sans-serif: "Inter Var", -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto,
+          Helvetica Neue, sans-serif;
+      }
+      body {
+        font-feature-settings: "cv03", "cv04", "cv11";
+      }
+      .navbar-nav li.active,
+      .dropdown-menu-column a.active {
+        background-color: rgba(20, 118, 255, 0.1);
+        font-weight: 500;
+      }
+
+      li.nav-item:hover {
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <aside class="navbar navbar-vertical navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#sidebar-menu"
+            aria-controls="sidebar-menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <h1 class="navbar-brand navbar-brand-autodark mt-lg-2">
+            <a href="#" class="text-decoration-none">
+              <span class="fs-2 fw-bold fst-italic">SI SERI</span>
+            </a>
+          </h1>
+          <div class="navbar-nav flex-row d-lg-none">
+            <div class="d-none d-lg-flex">
+              <div class="nav-item dropdown d-none d-md-flex me-3">
+                <a
+                  href="#"
+                  class="nav-link px-0"
+                  data-bs-toggle="dropdown"
+                  tabindex="-1"
+                  aria-label="Show notifications"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                    <path d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                    <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                  </svg>
+                  <span class="badge bg-red"></span>
+                </a>
+              </div>
+            </div>
+            <div class="nav-item dropdown">
+              <a
+                href="#"
+                class="nav-link d-flex lh-1 text-reset p-0"
+                data-bs-toggle="dropdown"
+                aria-label="Open user menu"
+              >
+                <span class="avatar avatar-sm" style="background-image: url(./assets/img/avatar.jpg)"></span>
+                <div class="d-none d-xl-block ps-2">
+                  <div>Naufal</div>
+                  <div class="mt-1 small text-secondary">Administrator</div>
+                </div>
+              </a>
+              <div class="text-muted dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <a href="#" class="dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-user me-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                  </svg>
+                  Profil
+                </a>
+                <a href="#" class="dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-lock me-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                    <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                    <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                  </svg>
+                  Ubah Kata Sandi
+                </a>
+                <a href="login.html" class="dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-logout me-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                    <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+                  </svg>
+                  Keluar
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="sidebar-menu">
+            <ul class="navbar-nav pt-lg-3">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-search"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+                      <path d="M21 21l-6 -6"></path>
+                    </svg>
+                  </span>
+                  <span class="nav-link-title">Pencarian</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="home.html">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+                      <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                      <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                    </svg>
+                  </span>
+                  <span class="nav-link-title">Beranda</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="data.html">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-clipboard-list"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2"></path>
+                      <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z"></path>
+                      <path d="M9 12l.01 0"></path>
+                      <path d="M13 12l2 0"></path>
+                      <path d="M9 16l.01 0"></path>
+                      <path d="M13 16l2 0"></path>
+                    </svg>
+                  </span>
+                  <span class="nav-link-title">Data</span>
+                </a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#navbar-base"
+                  data-bs-toggle="dropdown"
+                  data-bs-auto-close="false"
+                  role="button"
+                  aria-expanded="false"
+                >
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-file-analytics"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M14 3v4a1 1 0 0 0 1 1h4"></path>
+                      <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"></path>
+                      <path d="M9 17l0 -5"></path>
+                      <path d="M12 17l0 -1"></path>
+                      <path d="M15 17l0 -3"></path>
+                    </svg>
+                  </span>
+                  <span class="nav-link-title"> Laporan </span>
+                </a>
+                <div class="dropdown-menu">
+                  <div class="dropdown-menu-columns">
+                    <div class="dropdown-menu-column">
+                      <a class="dropdown-item" href="./pasien-masuk.html"> Pasien Masuk </a>
+                      <a class="dropdown-item" href="./pasien-keluar.html"> Pasien Keluar </a>
+                      <a class="dropdown-item" href="./indikator-kinerja.html"> Indikator Kinerja </a>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="chart.html">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-chart-histogram"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M3 3v18h18"></path>
+                      <path d="M20 18v3"></path>
+                      <path d="M16 16v5"></path>
+                      <path d="M12 13v8"></path>
+                      <path d="M8 16v5"></path>
+                      <path d="M3 11c6 0 5 -5 9 -5s3 5 9 5"></path>
+                    </svg>
+                  </span>
+                  <span class="nav-link-title">Grafik</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-settings"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path
+                        d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z"
+                      ></path>
+                      <path d="M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0"></path>
+                    </svg>
+                  </span>
+                  <span class="nav-link-title">Setelan</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+      <header class="navbar navbar-expand-md navbar-light d-none d-lg-flex d-print-none sticky-top">
+        <div class="container-xl">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbar-menu"
+            aria-controls="navbar-menu"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-nav flex-row order-md-last">
+            <div class="nav-item dropdown">
+              <a
+                class="nav-link d-flex lh-1 text-reset p-0 cursor-pointer"
+                data-bs-toggle="dropdown"
+                aria-label="Open user menu"
+              >
+                <span class="avatar avatar-sm" style="background-image: url(./assets/img/avatar.jpg)"></span>
+                <div class="d-none d-xl-block ps-2">
+                  <div>
+                    <span>Naufal</span>
+                  </div>
+                  <div class="mt-1 small text-muted">Administrator</div>
+                </div>
+              </a>
+              <div class="text-muted dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                <a href="#" class="dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-user me-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                  </svg>
+                  Profil
+                </a>
+                <a href="#" class="dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-lock me-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6z"></path>
+                    <path d="M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0"></path>
+                    <path d="M8 11v-4a4 4 0 1 1 8 0v4"></path>
+                  </svg>
+                  Ubah Kata Sandi
+                </a>
+                <a href="login.html" class="dropdown-item">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="icon icon-tabler icon-tabler-logout me-1"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                    <path d="M7 12h14l-3 -3m0 6l3 -3"></path>
+                  </svg>
+                  Keluar
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="collapse navbar-collapse" id="navbar-menu">
+            <div>
+              <span id="datetime"></span>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="page-wrapper">
+        <div class="page-header d-print-none">
+          <div class="container-xl">
+            <div class="row g-2 align-items-center">
+              <div class="col">
+                <h2 class="page-title">Rekapitulasi Sensus Harian Rawat Inap</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="page-body">
+          <div class="container-xl">
+            <div class="row g-4">
+              <div class="col-12">
+                <div class="card">
+                  <div class="card-body text-center px-md-5 text-white" style="background-color: #3a89ff">
+                    <h2>Rekapitulasi Pasien Rawat Inap Keluar</h2>
+                  </div>
+                </div>
+                <div class="card mt-3">
+                  <div class="table-responsive" style="max-height: 500px">
+                    <table class="table table-vcenter card-table table-bordered text-nowrap">
+                      <thead class="sticky-top">
+                        <tr class="text-center">
+                          <th class="text-white" style="background-color: #3b89ff" rowspan="2">Tanggal</th>
+                          <th class="text-white" style="background-color: #3a89ff" rowspan="2">Ruangan</th>
+                          <th class="text-white" style="background-color: #3a89ff" rowspan="2">Email Penginput</th>
+                          <th class="text-white" style="background-color: #3a89ff" colspan="3">Pasien Keluar Hidup</th>
+                          <th class="text-white" style="background-color: #3a89ff" colspan="3">
+                            Pasien Mati &lt; 24 Jam
+                          </th>
+                          <th class="text-white" style="background-color: #3a89ff" colspan="3">
+                            Pasien Mati &gt; 24 Jam
+                          </th>
+                          <th class="text-white" style="background-color: #3a89ff" colspan="3">Lama Rawat</th>
+                          <th class="text-white" style="background-color: #3a89ff" colspan="3">Pasien Sisa</th>
+                        </tr>
+                        <tr>
+                          <th>Kelas 1</th>
+                          <th>Kelas 2</th>
+                          <th>Kelas 3</th>
+                          <th>Kelas 1</th>
+                          <th>Kelas 2</th>
+                          <th>Kelas 3</th>
+                          <th>Kelas 1</th>
+                          <th>Kelas 2</th>
+                          <th>Kelas 3</th>
+                          <th>Kelas 1</th>
+                          <th>Kelas 2</th>
+                          <th>Kelas 3</th>
+                          <th>Kelas 1</th>
+                          <th>Kelas 2</th>
+                          <th>Kelas 3</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                        <tr class="text-center">
+                          <td>20 Jun 2023</td>
+                          <td>IPD</td>
+                          <td>alifia@gmail.com</td>
+                          <td>4</td>
+                          <td>2</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>12</td>
+                          <td>9</td>
+                          <td>31</td>
+                          <td>2</td>
+                          <td>1</td>
+                          <td>4</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="btn-list justify-content-end mt-3">
+                  <a href="#" class="btn btn-primary">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-arrows-maximize"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M16 4l4 0l0 4"></path>
+                      <path d="M14 10l6 -6"></path>
+                      <path d="M8 20l-4 0l0 -4"></path>
+                      <path d="M4 20l6 -6"></path>
+                      <path d="M16 20l4 0l0 -4"></path>
+                      <path d="M14 14l6 6"></path>
+                      <path d="M8 4l-4 0l0 4"></path>
+                      <path d="M4 4l6 6"></path>
+                    </svg>
+                    Full Screen
+                  </a>
+                  <a href="#" class="btn btn-warning">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="icon icon-tabler icon-tabler-download"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      fill="none"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                      <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2"></path>
+                      <path d="M7 11l5 5l5 -5"></path>
+                      <path d="M12 4l0 12"></path>
+                    </svg>
+                    Download
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./assets/bootstrap/bootstrap.min.js" defer></script>
+  </body>
+</html>
